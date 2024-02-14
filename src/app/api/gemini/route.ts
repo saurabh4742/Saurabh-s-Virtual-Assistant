@@ -70,7 +70,7 @@ export async function GET(req:NextRequest) {
     let currentMessages: { role: string; parts: string }[] =
       currentMessageFromDB ? currentMessageFromDB.history : [];
 
-      return new NextResponse(JSON.stringify({conversationContext,currentMessages}))
+      return new NextResponse(JSON.stringify({conversationContext}))
   } catch (error) {
     return new NextResponse(JSON.stringify({error:"Error while requesting"}))
   }
