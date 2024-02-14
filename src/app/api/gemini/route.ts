@@ -72,6 +72,6 @@ export async function GET(req:NextRequest) {
 
       return new NextResponse(JSON.stringify({conversationContext,currentMessages}))
   } catch (error) {
-    
+    return new NextResponse(JSON.stringify({error:"Error while requesting"}))
   }
 }
