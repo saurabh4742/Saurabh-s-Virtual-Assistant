@@ -7,19 +7,19 @@ interface Conversation {
   responseText: string;
 }
 
-interface LastConversations {
+interface Conversations {
   lastconversations: Conversation[];
 }
 
 export default function Home() {
-  const [messages, setMessages] = useState<LastConversations | null>(null);
+  const [messages, setMessages] = useState<Conversations | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const FetchChats = async () => {
       try {
         const response = await axios.get("/api/gemini");
-        const conversationContext = response.data.conversationContext as LastConversations;
+        const {conversationContext} = response.data
         setMessages(conversationContext);
         setLoading(false);
       } catch (error) {
