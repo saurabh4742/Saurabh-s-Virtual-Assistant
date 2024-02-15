@@ -1,7 +1,6 @@
-"use client"
-
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 interface Conversation {
   prompt: string;
   responseText: string;
@@ -10,8 +9,10 @@ interface Conversation {
 interface LastConversations {
   lastconversations: Conversation[];
 }
+
 export default function Home() {
   const [messages, setMessages] = useState<LastConversations | null>(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const FetchChats = async () => {
@@ -19,11 +20,12 @@ export default function Home() {
         const response = await axios.get("/api/gemini");
         const conversationContext = response.data.conversationContext as LastConversations;
         setMessages(conversationContext);
-        console.log(conversationContext)
+        setLoading(false);
       } catch (error) {
         console.log("Something went wrong");
+        setLoading(false); 
       }
-    };    
+    };
 
     FetchChats();
   }, []);
@@ -34,7 +36,9 @@ export default function Home() {
         <p className="flex justify-center text-center">Your Assistant is HERE!</p>
         <div className="flex-col justify-center">
           <div className="flex-col w-full justify-center">
-            {messages && messages.lastconversations ? (
+            {loading ? ( 
+              <p>Loading...</p>
+            ) : messages && messages.lastconversations ? ( 
               messages.lastconversations.map((message, index) => (
                 <div key={index}>
                   <div className="flex justify-start my-4 text-wrap">User: {message.prompt}</div>
@@ -42,7 +46,7 @@ export default function Home() {
                 </div>
               ))
             ) : (
-              <p>Loading...</p>
+              <p>No messages found.</p> 
             )}
           </div>
         </div>
