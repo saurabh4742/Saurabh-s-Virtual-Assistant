@@ -16,20 +16,26 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const FetchChats = async () => {
+    const fetchChats = async () => {
       try {
         const response = await axios.get("/api/gemini");
-        const {conversationContext} = response.data
-        setMessages(conversationContext);
+        const { conversationContext } = response.data;
+        // Ensure conversationContext is an array and not null
+        if (Array.isArray(conversationContext)) {
+          setMessages({ lastconversations: conversationContext });
+        } else {
+          setMessages(null); // Reset messages if conversationContext is not an array
+        }
         setLoading(false);
       } catch (error) {
-        console.log("Something went wrong");
-        setLoading(false); 
+        console.log("Something went wrong", error);
+        setLoading(false);
       }
     };
-
-    FetchChats();
+  
+    fetchChats();
   }, []);
+  
 
   return (
     <div className="flex justify-center w-full">
