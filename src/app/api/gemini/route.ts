@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     const chat = model.startChat({
       history: currentMessages,
       generationConfig: {
-        maxOutputTokens: 100,
+        maxOutputTokens: 2000,
       },
     });
 
