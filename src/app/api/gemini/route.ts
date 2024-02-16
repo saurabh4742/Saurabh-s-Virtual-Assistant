@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
 import { model } from "../../../gemini-secure/gemini";
 import { CurrentMessage, ConversationContext } from "@/models/chat";
@@ -25,14 +24,12 @@ export async function POST(req: NextRequest) {
     const chat = model.startChat({
       history: currentMessages,
       generationConfig: {
-        maxOutputTokens: 2000,
+        maxOutputTokens:1000,
       },
     });
 
     const result = await chat.sendMessage(prompt);
-
     const response = result.response;
-
     const responseText = response.text();
 
     conversationContext.push({ prompt, responseText });
