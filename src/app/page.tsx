@@ -3,6 +3,8 @@ import SendPromptBar from "@/components/sendPromptBar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "@/Lottifies/Loader";
+import { motion } from "framer-motion";
+import PlusChatRoom from "@/components/PlusChatRoom";
 interface Conversation {
   prompt: string;
   responseText: string;
@@ -40,7 +42,7 @@ export default function Home() {
   return (
     <div className="flex justify-center w-full bg-[#0F172A]  text-[#F8FAFC] ">
       <div className="flex-none justify-center my-4 items-center min-h-screen pt-4 w-10/12 sm:w-8/12 bg-[#1E293B] border-1 shadow-lg border-[#020617]  rounded-3xl">
-        <p className="flex justify-center text-center border-b-2 border-[#020617] rounded-b-md shadow-lg py-4">
+        <p className="flex justify-center  text-xl text-center border-b-2 border-[#020617] rounded-b-md shadow-lg py-4">
           Saurabh Buddy HERE to Assist YOU!
         </p>
         <div className="flex-col justify-center w-full">
@@ -49,18 +51,19 @@ export default function Home() {
               <Loader />
             ) : messages && messages.lastconversations ? (
               messages.lastconversations.map((message, index) => (
-                <div className="px-4 text text-wrap" key={index}>
+                <motion.div initial={{opacity:0.5}}  animate={{opacity:[1,0.5,1,,0.5,1]}}transition={{ease:"easeIn" , duration:0.2 }} className="px-4 text text-wrap" key={index}>
                   <div className="flex justify-start my-4   whitespace-pre-line">
                     <strong className="text-cyan-500 mr-2">You:</strong> {message.prompt}
                   </div>
                   <div className="flex justify-start my-4 whitespace-pre-line">
                   <strong className="text-cyan-500 mr-5">AI:</strong> {message.responseText}
                   </div>
-                </div>
+                </motion.div>
               ))
             ) : (
               <p>No messages found.</p>
             )}
+            <PlusChatRoom/>
             <SendPromptBar />
           </div>
         </div>

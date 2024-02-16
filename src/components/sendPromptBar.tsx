@@ -35,7 +35,7 @@ const SendPromptBar = () => {
     <div className="fixed w-full sm:w-8/12 bottom-6 px-2 ">
       <div className=" h-[40px] rounded-full  flex sm:w-full justify-start items-center bg-[#F8FAFC] w-10/12  p-1">
         <input
-          className="text-center bg-[#0F172A] text-lg text-wrap  px-2 rounded-full  w-full h-[34px]"
+          className="text-center  bg-[#0F172A] text-lg text-wrap  px-2 rounded-full  w-full h-[34px]"
           type="text"
           placeholder="Ask anything!"
           value={prompt}
