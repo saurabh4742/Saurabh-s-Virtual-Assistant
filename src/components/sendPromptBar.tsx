@@ -3,6 +3,7 @@ import { SendHorizontal } from "lucide-react";
 import React, { useState } from "react";
 import axios from "axios";
 import LoaderForPrompt from "@/Lottifies/LoaderForPrompt";
+import toast from "react-hot-toast";
 const SendPromptBar = () => {
     const [prompt,setPrompt]=useState("");
     const [loading,setLoading]=useState(false)
@@ -18,11 +19,11 @@ const SendPromptBar = () => {
             })
             setLoading(false)
             setPrompt("");
-            console.log("Done Generated")
+            toast.success("Respond Successful")
         } catch (error) {
             setLoading(false)
             setPrompt("");
-            console.log("error while sending")
+            toast.error("server issue")
         }
     }
   return (

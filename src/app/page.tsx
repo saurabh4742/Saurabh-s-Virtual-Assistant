@@ -15,7 +15,7 @@ interface Conversations {
 export default function Home() {
   const [messages, setMessages] = useState<Conversations | null>(null);
   const [loading, setLoading] = useState(true);
-
+  
   useEffect(() => {
     const fetchChats = async () => {
       try {
@@ -26,6 +26,7 @@ export default function Home() {
         } else {
           setMessages(null);
         }
+        
         setLoading(false);
       } catch (error) {
         console.log("Something went wrong", error);
