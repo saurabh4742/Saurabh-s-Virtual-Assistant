@@ -72,3 +72,16 @@ export async function GET(req:NextRequest) {
     return new NextResponse(JSON.stringify({error:"Error while requesting"}))
   }
 }
+export async function DELETE(req:NextRequest) {
+  try {
+    await ConversationContext.deleteOne()
+    await CurrentMessage.deleteOne()
+    return new NextResponse(JSON.stringify({success:true}),{
+      status:200
+    })
+  } catch (error) {
+    return new NextResponse(JSON.stringify({success:false}),{
+      status:500
+    })
+  }
+}
