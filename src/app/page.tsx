@@ -46,19 +46,19 @@ export default function Home() {
           Saurabh Buddy HERE to Assist YOU!
         </p>
         <div className="flex-col justify-center w-full">
-          <div className="flex-col w-full justify-center overflow-x-scroll    pb-8">
+          <div className="flex-col w-full justify-center overflow-x-hidden     pb-8">
             {loading ? (
               <Loader />
             ) : messages && messages.lastconversations ? (
               messages.lastconversations.map((message, index) => (
-                <motion.div initial={{opacity:0.5}}  animate={{opacity:[1,0.5,1,,0.5,1]}}transition={{ease:"easeIn" , duration:0.2 }} className="px-4 text text-wrap" key={index}>
+                <div  className="px-4 text text-wrap" key={index}>
                   <div className="flex justify-start my-4   whitespace-pre-line">
                     <strong className="text-cyan-500 mr-2">You:</strong> {message.prompt}
                   </div>
-                  <div className="flex justify-start my-4 whitespace-pre-line">
+                  <motion.div initial={{opacity:0.5}}  animate={{opacity:[1,0.5,1,,0.5,1]}}transition={{ease:"easeIn" , duration:0.2 }} className="flex justify-start my-4 whitespace-pre-line">
                   <strong className="text-cyan-500 mr-5">AI:</strong> {message.responseText}
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))
             ) : (
               <p>No messages found.</p>
