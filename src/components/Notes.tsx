@@ -4,7 +4,7 @@ const Notes = () => {
   return (
     <div className="flex-none text-sm">
       <div
-        className="bg-red-100 border-l-4  rounded-3xl my-2 border-red-500 text-red-700 p-4"
+        className="bg-[#1E293B] border-l-4  rounded-3xl my-2 border-red-500 text-red-700 p-4"
         role="alert"
       >
         <p className="font-bold">Warning:</p>
@@ -14,7 +14,7 @@ const Notes = () => {
         </p>
       </div>
       <div
-        className="bg-orange-100 border-l-4 rounded-3xl my-2 border-orange-500 text-orange-700 p-4"
+        className="bg-[#1E293B] border-l-4 rounded-3xl my-2 border-orange-500 text-orange-700 p-4"
         role="alert"
       >
         <p className="font-bold">Important Note:</p>
@@ -25,7 +25,7 @@ const Notes = () => {
       </div>
 
       <div
-        className="bg-yellow-100 w-full border-l-4 my-2 rounded-3xl border-yellow-500 text-yellow-700 p-4"
+        className="bg-[#1E293B] w-full border-l-4 my-2 rounded-3xl border-yellow-500 text-yellow-700 p-4"
         role="alert"
       >
         <p className="font-bold">Note:</p>
