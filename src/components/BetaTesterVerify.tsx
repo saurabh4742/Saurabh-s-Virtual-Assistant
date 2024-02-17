@@ -19,7 +19,7 @@ const BetaTesterVerify = ({ ...props }) => {
       if (response.data.ok) {
         toast.success("Verified");
         props.SetIsBetaTester(true);
-        return
+        return;
       }
       toast.error("Invalid Key");
     } catch (error) {
@@ -35,26 +35,28 @@ const BetaTesterVerify = ({ ...props }) => {
           Beta Tester Key Verification
         </label>
         <div className="flex-none">
-          <input
-            type="text"
-            onChange={(e) => setKey(e.target.value)}
-            name="Key"
-            value={key}
-            placeholder="Enter Key"
-            className="sm:w-[300px]   text-center rounded-full text-[#0F172A] shadow-lg border-4 border-[#0F172A] my-4"
-          />
-          <div className="flex justify-center ">
-            {loading ? (
-              <NewLoader />
-            ) : (
-              <button
-                onClick={handleKeyVerification}
-                className="bg-[#0F172A] rounded-full shadow-lg px-4 my-1 py-2 hover:text-[#0F172A] hover:bg-[#F8FAFC] text-[#F8FAFC]"
-              >
-                Get access
-              </button>
-            )}
-          </div>
+          {loading ? (
+            <NewLoader />
+          ) : (
+            <>
+              <input
+                type="text"
+                onChange={(e) => setKey(e.target.value)}
+                name="Key"
+                value={key}
+                placeholder="Enter Key"
+                className="sm:w-[300px]   text-center rounded-full text-[#0F172A] shadow-lg border-4 border-[#0F172A] my-4"
+              />
+              <div className="flex justify-center ">
+                <button
+                  onClick={handleKeyVerification}
+                  className="bg-[#0F172A] rounded-full shadow-lg px-4 my-1 py-2 hover:text-[#0F172A] hover:bg-[#F8FAFC] text-[#F8FAFC]"
+                >
+                  Get access
+                </button>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>
