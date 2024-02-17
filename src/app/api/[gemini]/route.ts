@@ -6,7 +6,7 @@ export async function POST(req: NextRequest,context:any) {
   try {
     const {params}=context
     if (params.gemini!=process.env.SECURITY_KEY) {
-      return new NextResponse(JSON.stringify({Authorization:"False" ,Behaviour:"Illegal Activity Detected From The Client"}))
+      return new NextResponse(JSON.stringify({Authorization:false ,Behaviour:"Illegal Activity Detected From The Client"}))
     }
     const { prompt } = await req.json();
 
@@ -62,7 +62,7 @@ export async function GET(req:NextRequest,context:any) {
   try {
     const {params}=context
     if (params.gemini!=process.env.SECURITY_KEY) {
-      return new NextResponse(JSON.stringify({Authorization:"False" ,Behaviour:"Illegal Activity Detected From The Client"}))
+      return new NextResponse(JSON.stringify({Authorization:false ,Behaviour:"Illegal Activity Detected From The Client"}))
     }
       
     const contextFromDB = await ConversationContext.findOne();
@@ -84,7 +84,7 @@ export async function DELETE(req:NextRequest,context:any) {
   try {
     const {params}=context
     if (params.gemini!=process.env.SECURITY_KEY) {
-      return new NextResponse(JSON.stringify({Authorization:"False" ,Behaviour:"Illegal Activity Detected From The Client"}))
+      return new NextResponse(JSON.stringify({Authorization:false ,Behaviour:"Illegal Activity Detected From The Client"}))
     }
     await ConversationContext.deleteOne()
     await CurrentMessage.deleteOne()

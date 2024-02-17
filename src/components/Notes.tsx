@@ -1,4 +1,4 @@
-import { AlertCircle, AlertTriangle, NotebookPen, ShieldAlert } from "lucide-react";
+import { AlertTriangle, NotebookPen, ShieldAlert } from "lucide-react";
 import React from "react";
 
 const Notes = () => {
