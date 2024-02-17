@@ -5,14 +5,14 @@ import toast from "react-hot-toast";
 
 const BetaTesterVerify = ({ ...props }) => {
   const [loading, setLoading] = useState(false);
-  const [key, setKey] = useState("");
+  const [Key, setKey] = useState("");
   const handleKeyVerification = async () => {
     try {
       setLoading(true);
       const response = await axios.post(
         "/api/ekgandpereptapadanasadakpehagtafirega/key",
         {
-          key
+          Key
         }
       );
       setLoading(false);
@@ -43,7 +43,7 @@ const BetaTesterVerify = ({ ...props }) => {
                 type="text"
                 onChange={(e) => setKey(e.target.value)}
                 name="Key"
-                value={key}
+                value={Key}
                 placeholder="Enter Key"
                 className="sm:w-[300px]   text-center rounded-full text-[#0F172A] shadow-lg border-4 border-[#0F172A] my-4"
               />
