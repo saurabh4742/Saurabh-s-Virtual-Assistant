@@ -4,8 +4,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 import { Toaster } from "react-hot-toast";
 export const metadata: Metadata = {
-  title: "AssistantBuddy",
-  description: "Created by Saurabh Anand @copyright 2023",
+  title: "Saurabh's Virtual Assistant",
+  description: "Created by Saurabh Anand @copyright 2024",
 };
 
 export default function RootLayout({

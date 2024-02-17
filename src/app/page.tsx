@@ -64,17 +64,17 @@ export default function Home() {
       <div className="flex-none justify-center my-4 items-center min-h-screen pt-4 w-full bg-[#1E293B] border-1 shadow-lg border-[#020617]  rounded-3xl">
        <div className="flex-none border-b-2 border-[#020617] rounded-b-md shadow-lg  p-4">
        <p className="flex justify-center  text-3xl text-center  py-4 ">
-       Saurabh Virtual Assistant!
+       Saurabh&apos;s Virtual Assistant!
         </p>
         <div className="flex justify-center">
       <Suspense fallback={<NewLoader/>}>
-      <div className="flex gap-4 justify-center items-center">
+      <div className="flex gap-4 justify-center items-center text-sm">
       <img
       className="rounded-[50%] p-0.5 inset-full  border-2 border-[#64748B] shadow-xl"
         src="https://firebasestorage.googleapis.com/v0/b/image-test-b1876.appspot.com/o/SaurabhAnand111.jpeg?alt=media&token=4a860572-f344-48d4-9b74-511c75489783"
         alt="Avatar"
-        height={80}
-        width={80}
+        height={60}
+        width={60}
       />
       <p>&copy;2024 Saurabh Anand All rights reserved.</p>
       </div>
