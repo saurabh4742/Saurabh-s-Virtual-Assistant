@@ -15,7 +15,7 @@ const SendPromptBar = () => {
   const handlePrompt = async () => {
     try {
       setLoading(true);
-      const response = await axios.post("/api/gemini", {
+      const response = await axios.post("/api/ekgandpereptapadanasadakpehagtafirega", {
         prompt: prompt,
       });
       const responseText = response.data.responseText;

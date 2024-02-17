@@ -2,9 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { model } from "../../../gemini-secure/gemini";
 import { CurrentMessage, ConversationContext } from "@/models/chat";
 import "@/gemini-secure/db";
-
-export async function POST(req: NextRequest) {
+export async function POST(req: NextRequest,context:any) {
   try {
+    const {params}=context
+    if (params.gemini!=process.env.SECURITY_KEY) {
+      return new NextResponse(JSON.stringify({Authorization:"False" ,Behaviour:"Illegal Activity Detected From The Client"}))
+    }
     const { prompt } = await req.json();
 
     const contextFromDB = await ConversationContext.findOne();
@@ -55,8 +58,13 @@ export async function POST(req: NextRequest) {
   }
 }
 
-export async function GET(req:NextRequest) {
+export async function GET(req:NextRequest,context:any) {
   try {
+    const {params}=context
+    if (params.gemini!=process.env.SECURITY_KEY) {
+      return new NextResponse(JSON.stringify({Authorization:"False" ,Behaviour:"Illegal Activity Detected From The Client"}))
+    }
+      
     const contextFromDB = await ConversationContext.findOne();
 
     let conversationContext: { prompt: string; responseText: string }[] =
@@ -72,8 +80,12 @@ export async function GET(req:NextRequest) {
     return new NextResponse(JSON.stringify({error:"Error while requesting"}))
   }
 }
-export async function DELETE(req:NextRequest) {
+export async function DELETE(req:NextRequest,context:any) {
   try {
+    const {params}=context
+    if (params.gemini!=process.env.SECURITY_KEY) {
+      return new NextResponse(JSON.stringify({Authorization:"False" ,Behaviour:"Illegal Activity Detected From The Client"}))
+    }
     await ConversationContext.deleteOne()
     await CurrentMessage.deleteOne()
     return new NextResponse(JSON.stringify({success:true}),{

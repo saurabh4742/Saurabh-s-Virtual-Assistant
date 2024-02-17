@@ -9,7 +9,7 @@ const PlusChatRoom = () => {
   const handlePLUS = async () => {
     try {
       setLoading(true);
-      const res = await axios.delete("/api/gemini");
+      const res = await axios.delete("/api/ekgandpereptapadanasadakpehagtafirega");
       setLoading(false);
         toast.success("New Chat Created");
     } catch (error) {

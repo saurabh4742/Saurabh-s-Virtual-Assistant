@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     const fetchChats = async () => {
       try {
-        const response = await axios.get("/api/gemini");
+        const response = await axios.get("/api/ekgandpereptapadanasadakpehagtafirega");
         const { conversationContext } = response.data;
         if (Array.isArray(conversationContext)) {
           setMessages({ lastconversations: conversationContext });
