@@ -23,6 +23,7 @@ const BetaTesterVerify = ({ ...props }) => {
       }
       toast.error("Invalid Key");
     } catch (error) {
+      setLoading(false);
       toast.error("Server issue from key api");
     }
   };
