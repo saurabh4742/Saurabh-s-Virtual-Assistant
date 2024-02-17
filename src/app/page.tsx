@@ -46,7 +46,7 @@ export default function Home() {
           Saurabh Buddy HERE to Assist YOU!
         </p>
         <div className="flex-col justify-center w-full">
-          <div className="flex-col w-full  justify-center pb-8">
+          <div className="flex-col w-full justify-center overflow-x-scroll    pb-8">
             {loading ? (
               <Loader />
             ) : messages && messages.lastconversations ? (
