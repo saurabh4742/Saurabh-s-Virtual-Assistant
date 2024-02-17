@@ -12,7 +12,7 @@ const BetaTesterVerify = ({ ...props }) => {
       const response = await axios.post(
         "/api/ekgandpereptapadanasadakpehagtafirega/key",
         {
-          key,
+          key
         }
       );
       setLoading(false);
