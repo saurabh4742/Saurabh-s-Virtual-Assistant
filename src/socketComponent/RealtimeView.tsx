@@ -17,7 +17,7 @@ const RealtimeView = () => {
       toast.remove("Someone Left")
       socket.disconnect()
     }
-  })
+  },[])
   return (
     <div className='flex justify-center'>
     {views} Instance{views>1 && `${"s"}`} Of This AI Running Currently
