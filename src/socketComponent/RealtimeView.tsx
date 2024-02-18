@@ -11,10 +11,10 @@ const RealtimeView = () => {
     socket.connect()
     socket.on("count", (count) => {
       setViews(count)
-      toast.success("Be Cautious You are Not Alone Here")
+      toast.success("Someone Joined")
     })
     return () => {
-      toast.remove("Someone left ")
+      toast.remove("Someone Left")
       socket.disconnect()
     }
   }, [])
