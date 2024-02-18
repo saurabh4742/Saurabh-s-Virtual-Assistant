@@ -12,7 +12,6 @@
     "@google/generative-ai": "^0.2.1",
     "@lottiefiles/react-lottie-player": "^3.5.3",
     "axios": "^1.6.7",
-    "cookies-next": "^4.1.1",
     "framer-motion": "^11.0.5",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.331.0",
@@ -21,7 +20,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-helmet-async": "^2.0.4",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "socket.io-client": "^4.7.4"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.5",
