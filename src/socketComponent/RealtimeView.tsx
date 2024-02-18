@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import io from 'socket.io-client'
-
 const API_URL = 'https://svi-io.vercel.app'
 const socket = io(API_URL, { autoConnect: false })
 
@@ -11,16 +10,18 @@ const RealtimeView = () => {
 
   useEffect(() => {
     socket.connect()
-
-    socket.on("count", (count) => {
+    socket.on("count", ({count,id}) => {
       setViews(count)
-      toast.success("Someone Joined")
+        toast.success(`${id} Joined`)
     })
+
 
     return () => {
       socket.off("count")
-      socket.disconnect()
-      toast.remove("Someone Left")
+      socket.on("disconnect", (reason) => {
+        toast.error("Someone Left")
+      });
+      
     }
   }, [])
 
