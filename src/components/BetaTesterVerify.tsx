@@ -2,10 +2,11 @@ import NewLoader from "@/Lottifies/NewLoader";
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-
-const BetaTesterVerify = ({ ...props }) => {
+import { useMyContext } from "./Provider";
+const BetaTesterVerify = () => {
   const [loading, setLoading] = useState(false);
   const [Key, setKey] = useState("");
+  const {setisBetaTester} =useMyContext()
   const handleKeyVerification = async () => {
     try {
       setLoading(true);
@@ -17,8 +18,8 @@ const BetaTesterVerify = ({ ...props }) => {
       );
       setLoading(false);
       if (response.data.ok) {
-        toast.success("Verified");
-        props.SetIsBetaTester(true);
+        toast.success(`gambare gambare 🤖`);
+        setisBetaTester(true);
         return;
       }
       toast.error("Invalid Key");

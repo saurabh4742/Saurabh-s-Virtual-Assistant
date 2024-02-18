@@ -2,8 +2,23 @@
 "use client"
 import NewLoader from '@/Lottifies/NewLoader'
 import React, { Suspense } from 'react'
-
+import { useMyContext } from './Provider'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 const TitleAndCopyright = () => {
+  const {isBetaTester,setisBetaTester} =useMyContext()
+  const handleLogout=async()=>{
+    try {
+      const response = await axios.delete(
+        "/api/ekgandpereptapadanasadakpehagtafirega/key"
+      );
+        toast.success(`sayonara 👋`);
+        setisBetaTester(false);
+        return;
+    } catch (error) {
+      toast.error("server issue");
+    }
+  }
   return (
     <div className="flex-none border-b-2 border-[#020617] rounded-b-md shadow-lg  p-4">
        <p className="flex justify-center  text-3xl text-center  py-4 ">
@@ -23,6 +38,14 @@ const TitleAndCopyright = () => {
       </div>
       </Suspense>
       </div>
+      {isBetaTester && <div className="flex justify-center ">
+                <button
+                  onClick={handleLogout}
+                  className=" border-4 border-[#0F172A] rounded-full shadow-lg px-4 my-1 py-2 hover:text-[#F8FAFC] hover:bg-[#0F172A] bg-[#F8FAFC] text-[#0F172A]"
+                >
+                  Sign out
+                </button>
+              </div>}
        </div>
   )
 }
