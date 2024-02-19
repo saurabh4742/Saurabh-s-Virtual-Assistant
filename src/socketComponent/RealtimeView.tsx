@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import io from 'socket.io-client'
-const API_URL = 'http://localhost:3001'
+const API_URL = 'https://svi-io.onrender.com'
 const socket = io(API_URL, { autoConnect: false })
 import { Primarystyle } from '@/toastTheme/Themedstyle'
 const RealtimeView = () => {
