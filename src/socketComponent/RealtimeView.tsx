@@ -13,11 +13,11 @@ const RealtimeView = () => {
       setViews(count)
     })
     socket.on("joined",(id)=>{
-      toast.success(`${id} Joined`,Primarystyle )
+      toast.success(`${id} Joined`,{style:Primarystyle.style, iconTheme:Primarystyle.iconTheme} )
     })
     socket.on("left",(id)=>
     [
-      toast.error(`${id} Left`,Primarystyle)
+      toast(`${id} Left`,{style:Primarystyle.style, iconTheme:Primarystyle.iconTheme,icon:"🏃"})
     ])
     return () => {
       socket.off("left")

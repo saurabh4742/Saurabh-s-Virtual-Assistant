@@ -5,7 +5,7 @@ export const Primarystyle={
       color: '#1E293B',
     },
     iconTheme: {
-      primary: '#1E293B',
+      primary: '#713200',
       secondary: '#FFFAEE',
     },
   }
