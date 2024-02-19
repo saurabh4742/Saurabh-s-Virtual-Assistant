@@ -2,24 +2,29 @@
 import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import io from 'socket.io-client'
-const API_URL = 'https://svi-io.onrender.com'
+const API_URL = 'http://localhost:3001'
 const socket = io(API_URL, { autoConnect: false })
-
+import { Primarystyle } from '@/toastTheme/Themedstyle'
 const RealtimeView = () => {
   const [views, setViews] = useState(0)
-
   useEffect(() => {
     socket.connect()
-    socket.on("count", ({count,id}) => {
+    socket.on("count", (count) => {
       setViews(count)
-        toast.success(`${id} Joined`)
     })
-
-
+    socket.on("joined",(id)=>{
+      toast.success(`${id} Joined`,Primarystyle )
+    })
+    socket.on("left",(id)=>
+    [
+      toast.error(`${id} Left`,Primarystyle)
+    ])
     return () => {
+      socket.off("left")
       socket.off("count")
+      socket.off("joined")
       socket.on("disconnect", (reason) => {
-        toast.error("Someone Left")
+        
       });
       
     }
