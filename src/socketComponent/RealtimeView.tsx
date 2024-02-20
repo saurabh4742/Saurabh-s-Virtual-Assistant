@@ -32,7 +32,7 @@ const RealtimeView = () => {
       socket.off("count")
       socket.off("joined")
       socket.on("disconnect", (reason) => {
-        if(isBetaTester?){
+        if(isBetaTester){
           axios.delete("/api/ekgandpereptapadanasadakpehagtafirega",{
             data: {
               scid:SocketId 
