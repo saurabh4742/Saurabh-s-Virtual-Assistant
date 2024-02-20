@@ -13,7 +13,7 @@ const PlusChatRoom = () => {
   const handlePLUS = async () => {
     let id = SocketId
 
-if (isBetaTester.startsWith('p')) {
+if (isBetaTester?.startsWith('p')) {
     id = isBetaTester;
   }    try {
       setLoading(true);
