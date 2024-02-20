@@ -20,7 +20,7 @@ const DIscussionPage = () => {
     const fetchChats = async () => {
       let id=SocketId
 
-if (isBetaTester.startsWith('p')) {
+if (isBetaTester?.startsWith('p')) {
     id = isBetaTester;
   }      try {
         const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${id}`,{
