@@ -10,6 +10,7 @@ try {
 } catch (error) {
     // Define the model if it hasn't been compiled yet
     CurrentMessage = mongoose.model('CurrentMessage', new Schema({
+        scid:{type:String,required: true},
         history: [{
             role: { type: String, required: true },
             parts: { type: String, required: true }
@@ -17,6 +18,7 @@ try {
     }));
 
     ConversationContext = mongoose.model('ConversationContext', new Schema({
+        scid:{type:String,required: true},
         lastconversations: [{
             prompt: { type: String, required: true },
             responseText: { type: String, required: true }

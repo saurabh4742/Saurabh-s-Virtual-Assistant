@@ -4,27 +4,31 @@ import React, { useState } from "react";
 import axios from "axios";
 import LoaderForPrompt from "@/Lottifies/LoaderForPrompt";
 import toast from "react-hot-toast";
+import { Primarystyle } from "@/toastTheme/Themedstyle";
+import { useMyContext } from "./Provider";
 const SendPromptBar = () => {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
+  const {SocketId,isBetaTester} =useMyContext()
   const handleInputChange = (event: {
     target: { value: React.SetStateAction<string> };
   }) => {
     setPrompt(event.target.value);
   };
   const handlePrompt = async () => {
+    const id =SocketId
     try {
       setLoading(true);
       const response = await axios.post("/api/ekgandpereptapadanasadakpehagtafirega", {
-        prompt: prompt,
+        prompt: prompt,scid:id
       });
       const responseText = response.data.responseText;
       setLoading(false);
       setPrompt("");
       if (responseText) {
-        toast.success("Respond Successful");
+        toast.success("Respond Successful",Primarystyle );
       } else {
-        toast.error("Server issue refresh");
+        toast.error("Server issue refresh",Primarystyle );
       }
     } catch (error) {
       setLoading(false);

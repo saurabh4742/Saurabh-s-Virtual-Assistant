@@ -9,7 +9,7 @@ export default function Home() {
         <Notes />
         <RealtimeView/>
         <div>
-          <div className="flex-none justify-center my-4 items-center min-h-fit   pt-4 w-full bg-[#1E293B] border-1 shadow-lg border-[#020617]  rounded-3xl">
+          <div className="flex-none justify-center my-4 items-center min-h-dvh    pt-4 w-full bg-[#1E293B] border-1 shadow-lg border-[#020617]  rounded-3xl">
             <TitleAndCopyright />
             <div className="flex-col w-full justify-center item-center pb-8">
               <UserInteractive/>

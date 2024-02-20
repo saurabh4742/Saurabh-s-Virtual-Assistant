@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { cookies } from "next/headers";
 const TokenGenerate = (key: string) => {
-  return jwt.sign({ key }, `${process.env.JWT_SECRET}`);
+  return jwt.sign({ key },`${process.env.JWT_SECRET}`);
 };
 const CookieSetter = async (token: string, set: boolean) => {
   cookies().set("betakey", set?token:"", {
@@ -12,9 +12,16 @@ const CookieSetter = async (token: string, set: boolean) => {
   });
 };
 const isAuthorized=()=>{
-  if(cookies().get("betakey")){
-      return true
+  const token = cookies().get("betakey")?.value;
+  if (token) {
+    try {
+      return jwt.verify(token,`${process.env.JWT_SECRET}`).toString();
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
-  return false
-}
+
+  return null;
+};
 export { TokenGenerate, isAuthorized,CookieSetter };

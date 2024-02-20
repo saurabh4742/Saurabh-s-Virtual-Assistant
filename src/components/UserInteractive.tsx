@@ -6,12 +6,14 @@ import DIscussionPage from "@/components/DIscussionPage";
 import BetaTesterVerify from "./BetaTesterVerify";
 import { useMyContext } from "./Provider";
 const UserInteractive = () => {
-    const {isBetaTester} =useMyContext()
+    const {isBetaTester,SocketId} =useMyContext()
   return (
     <div>
-      {isBetaTester? <><DIscussionPage />
+      {SocketId ? <>
+        {isBetaTester? <><DIscussionPage />
       <PlusChatRoom />
       <SendPromptBar /></>:<BetaTesterVerify />}
+      </>:<p className="flex justify-center m-4  text-xl text-[#F8FAFC]">Please wait while server comes online...</p>}
     </div>
   );
 };

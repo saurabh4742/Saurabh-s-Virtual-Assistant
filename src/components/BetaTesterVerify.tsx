@@ -3,10 +3,11 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useMyContext } from "./Provider";
+import { Primarystyle } from "@/toastTheme/Themedstyle";
 const BetaTesterVerify = () => {
   const [loading, setLoading] = useState(false);
   const [Key, setKey] = useState("");
-  const {setisBetaTester} =useMyContext()
+  const {setisBetaTester,SocketId} =useMyContext()
   const handleKeyVerification = async () => {
     try {
       setLoading(true);
@@ -18,11 +19,11 @@ const BetaTesterVerify = () => {
       );
       setLoading(false);
       if (response.data.ok) {
-        toast.success(`gambare gambare 🤖`);
-        setisBetaTester(true);
+        toast.success(`gambare gambare 🤖`,Primarystyle );
+        setisBetaTester(Key);
         return;
       }
-      toast.error("Invalid Key");
+      toast.error("Invalid Key",Primarystyle );
     } catch (error) {
       setLoading(false);
       toast.error("Server issue from key api");
@@ -31,7 +32,7 @@ const BetaTesterVerify = () => {
 
   return (
     <div className="w-full flex justify-center text-center items-center my-4 px-2">
-      <div className="">
+        {SocketId?      <div className="">
         <label htmlFor="KEY" className="font-bold ">
           Beta Tester Key Verification
         </label>
@@ -59,7 +60,7 @@ const BetaTesterVerify = () => {
             </>
           )}
         </div>
-      </div>
+      </div>:<p className="flex justify-center m-4  text-xl text-[#F8FAFC]">Please wait while server comes online...</p>}
     </div>
   );
 };

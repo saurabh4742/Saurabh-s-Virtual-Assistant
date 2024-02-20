@@ -1,21 +1,29 @@
 "use client";
 import NewLoader from "@/Lottifies/NewLoader";
+import { Primarystyle } from "@/toastTheme/Themedstyle";
 import axios from "axios";
 import { SquarePen} from "lucide-react";
 import React, { useState } from "react";
 import toast from "react-hot-toast/headless";
+import { useMyContext } from "./Provider";
 
 const PlusChatRoom = () => {
   const [loading, setLoading] = useState(false);
+  const {SocketId,isBetaTester} =useMyContext()
   const handlePLUS = async () => {
+    const id = SocketId
     try {
       setLoading(true);
-      const res = await axios.delete("/api/ekgandpereptapadanasadakpehagtafirega");
+      const res = await axios.delete("/api/ekgandpereptapadanasadakpehagtafirega",{
+        data: {
+          scid:id
+        }
+      });
       setLoading(false);
-        toast.success("New Chat Created");
+        toast.success("New Chat Created",Primarystyle );
     } catch (error) {
       setLoading(false);
-      toast.error("Server issue");
+      toast.error("Server issue",Primarystyle );
     }
   };
   return (
@@ -41,3 +49,5 @@ const PlusChatRoom = () => {
 };
 
 export default PlusChatRoom;
+
+

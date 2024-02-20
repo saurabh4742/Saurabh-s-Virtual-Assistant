@@ -3,6 +3,7 @@ import Loader from '@/Lottifies/Loader';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react'
+import { useMyContext } from './Provider';
 interface Conversation {
     prompt: string;
     responseText: string;
@@ -14,14 +15,16 @@ interface Conversation {
 const DIscussionPage = () => {
     const [messages, setMessages] = useState<Conversations | null>(null);
   const [loading, setLoading] = useState(true);
-
+  const {SocketId,isBetaTester} =useMyContext()
   useEffect(() => {
     const fetchChats = async () => {
+      const id=SocketId
       try {
-        const response = await axios.get("/api/ekgandpereptapadanasadakpehagtafirega");
+        const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${id}`,{
+        });
         const { conversationContext } = response.data;
         if (Array.isArray(conversationContext)) {
-          setMessages({ lastconversations: conversationContext });
+          setMessages({lastconversations:conversationContext});
         } else {
           setMessages(null);
         }
@@ -34,6 +37,7 @@ const DIscussionPage = () => {
     };
 
     fetchChats();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [messages]);
   return (
     <>
@@ -64,3 +68,4 @@ const DIscussionPage = () => {
 }
 
 export default DIscussionPage
+

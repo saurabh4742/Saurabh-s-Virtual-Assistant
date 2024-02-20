@@ -17,11 +17,11 @@ export async function POST(req: NextRequest, context: any) {
     }
 
     const { Key } = await req.json();
-    const tester = await BetaTester.findOne();
+    const tester = await BetaTester.findOne({ KEY: Key });
 
-    if (Key == tester.KEY) {
+    if (tester) {
       const token = TokenGenerate(Key);
-      CookieSetter(token,true)
+      CookieSetter(token, true);
       return new NextResponse(JSON.stringify({ ok: true }));
     }
     return new NextResponse(JSON.stringify({ ok: false }));
@@ -31,6 +31,7 @@ export async function POST(req: NextRequest, context: any) {
     );
   }
 }
+
 
 export async function GET(req: NextRequest, context: any) {
   try {
@@ -44,7 +45,7 @@ export async function GET(req: NextRequest, context: any) {
         })
       );
     }
-  return new NextResponse(JSON.stringify({ authorized: isAuthorized() }));
+  return new NextResponse(JSON.stringify({ key: isAuthorized() }));
   } catch (error) {
     return new NextResponse(JSON.stringify({ error: "API error" }));
   }

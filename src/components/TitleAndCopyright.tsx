@@ -5,6 +5,7 @@ import React, { Suspense } from 'react'
 import { useMyContext } from './Provider'
 import axios from 'axios'
 import toast from 'react-hot-toast'
+import { Primarystyle } from '@/toastTheme/Themedstyle'
 const TitleAndCopyright = () => {
   const {isBetaTester,setisBetaTester} =useMyContext()
   const handleLogout=async()=>{
@@ -12,11 +13,13 @@ const TitleAndCopyright = () => {
       const response = await axios.delete(
         "/api/ekgandpereptapadanasadakpehagtafirega/key"
       );
-        toast.success(`sayonara 👋`);
-        setisBetaTester(false);
+      if(response.data.ok){
+        toast.success(`sayonara 👋`,Primarystyle );
+        setisBetaTester(undefined);
         return;
+      }
     } catch (error) {
-      toast.error("server issue");
+      toast.error("server issue",Primarystyle );
     }
   }
   return (
