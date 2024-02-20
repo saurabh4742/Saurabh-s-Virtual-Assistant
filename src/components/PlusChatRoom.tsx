@@ -12,7 +12,10 @@ const PlusChatRoom = () => {
   const {SocketId,isBetaTester} =useMyContext()
   const handlePLUS = async () => {
     const id = SocketId
-    try {
+
+if (isBetaTester.startsWith('p')) {
+    id = isBetaTester;
+  }    try {
       setLoading(true);
       const res = await axios.delete("/api/ekgandpereptapadanasadakpehagtafirega",{
         data: {
