@@ -19,7 +19,10 @@ const DIscussionPage = () => {
   useEffect(() => {
     const fetchChats = async () => {
       const id=SocketId
-      try {
+
+if (isBetaTester.startsWith('p')) {
+    id = isBetaTester;
+  }      try {
         const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${id}`,{
         });
         const { conversationContext } = response.data;
