@@ -16,7 +16,7 @@ const SendPromptBar = () => {
     setPrompt(event.target.value);
   };
   const handlePrompt = async () => {
-    const id =SocketId
+    let id =SocketId
 
 if (isBetaTester.startsWith('p')) {
     id = isBetaTester;
