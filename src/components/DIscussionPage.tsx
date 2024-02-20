@@ -18,7 +18,7 @@ const DIscussionPage = () => {
   const {SocketId,isBetaTester} =useMyContext()
   useEffect(() => {
     const fetchChats = async () => {
-      const id=SocketId
+      let id=SocketId
 
 if (isBetaTester.startsWith('p')) {
     id = isBetaTester;
