@@ -11,7 +11,7 @@ const PlusChatRoom = () => {
   const [loading, setLoading] = useState(false);
   const {SocketId,isBetaTester} =useMyContext()
   const handlePLUS = async () => {
-    const id = SocketId
+    let id = SocketId
 
 if (isBetaTester.startsWith('p')) {
     id = isBetaTester;
