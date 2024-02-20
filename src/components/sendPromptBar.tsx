@@ -17,7 +17,10 @@ const SendPromptBar = () => {
   };
   const handlePrompt = async () => {
     const id =SocketId
-    try {
+
+if (isBetaTester.startsWith('p')) {
+    id = isBetaTester;
+  }    try {
       setLoading(true);
       const response = await axios.post("/api/ekgandpereptapadanasadakpehagtafirega", {
         prompt: prompt,scid:id
