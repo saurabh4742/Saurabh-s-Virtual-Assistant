@@ -15,13 +15,13 @@ const isAuthorized=()=>{
   const token = cookies().get("betakey")?.value;
   if (token) {
     try {
-      return jwt.verify(token,`${process.env.JWT_SECRET}`).toString();
+      return jwt.verify(token,`${process.env.JWT_SECRET}`)
     } catch (error) {
       console.error(error);
-      return null;
+      return undefined;
     }
   }
 
-  return null;
+  return undefined;
 };
 export { TokenGenerate, isAuthorized,CookieSetter };

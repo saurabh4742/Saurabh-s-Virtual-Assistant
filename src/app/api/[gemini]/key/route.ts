@@ -45,7 +45,7 @@ export async function GET(req: NextRequest, context: any) {
         })
       );
     }
-  return new NextResponse(JSON.stringify({ key: isAuthorized() }));
+  return new NextResponse(JSON.stringify({ KEY: isAuthorized() }));
   } catch (error) {
     return new NextResponse(JSON.stringify({ error: "API error" }));
   }

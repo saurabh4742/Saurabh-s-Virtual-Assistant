@@ -24,8 +24,8 @@ export const MyContextProvider = ({ children }: MyContextProviderProps) => {
     const Authorized = async () => {
       try {
         const res = await axios.get("/api/ekgandpereptapadanasadakpehagtafirega/key")
-        if (res.data.key) {
-          setisBetaTester(res.data.key );
+        if (res.data.KEY.key) {
+          setisBetaTester(res.data.KEY.key);
         } else {
           setisBetaTester(undefined);
         }
@@ -34,7 +34,7 @@ export const MyContextProvider = ({ children }: MyContextProviderProps) => {
       }
     }
     Authorized();
-  }, [SocketId,isBetaTester]);
+  }, []);
 
   return (
     <MyContext.Provider value={{ isBetaTester, setisBetaTester, SocketId, setSocketId }}>

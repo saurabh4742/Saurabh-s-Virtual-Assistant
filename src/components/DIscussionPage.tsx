@@ -15,14 +15,15 @@ interface Conversation {
 const DIscussionPage = () => {
     const [messages, setMessages] = useState<Conversations | null>(null);
   const [loading, setLoading] = useState(true);
-  const {isBetaTester} =useMyContext()
+  const {isBetaTester,SocketId} =useMyContext()
   useEffect(() => {
     const fetchChats = async () => {
-      let id =isBetaTester
-
+      let scid=isBetaTester
+      if(isBetaTester?.startsWith('p')){
+        scid=SocketId
+      }
       try {
-        const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${id}`,{
-        });
+        const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${scid}`);
         const { conversationContext } = response.data;
         if (Array.isArray(conversationContext)) {
           setMessages({lastconversations:conversationContext});
