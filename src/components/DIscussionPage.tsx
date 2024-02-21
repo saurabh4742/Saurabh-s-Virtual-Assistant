@@ -15,10 +15,10 @@ interface Conversation {
 const DIscussionPage = () => {
     const [messages, setMessages] = useState<Conversations | null>(null);
   const [loading, setLoading] = useState(true);
-  const {SocketId,isBetaTester} =useMyContext()
+  const {isBetaTester} =useMyContext()
   useEffect(() => {
     const fetchChats = async () => {
-      let id=SocketId
+      let id =isBetaTester
 
       try {
         const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${id}`,{

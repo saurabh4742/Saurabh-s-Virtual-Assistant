@@ -32,19 +32,9 @@ const RealtimeView = () => {
       socket.off("count")
       socket.off("joined")
       socket.on("disconnect", (reason) => {
-        if(isBetaTester?.startsWith('p')){
-          axios.delete("/api/ekgandpereptapadanasadakpehagtafirega",{
-            data: {
-              scid:SocketId 
-            }
-          }).then(()=>{
-            console.log("Done")
-          }).catch((err:any)=>{
-            console.log(err)
-          })
+          toast.error("Left",Primarystyle)
         
-        }
-      });
+        })
       
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps

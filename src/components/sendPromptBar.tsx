@@ -16,7 +16,7 @@ const SendPromptBar = () => {
     setPrompt(event.target.value);
   };
   const handlePrompt = async () => {
-    let id =SocketId
+    let id =isBetaTester
    try {
       setLoading(true);
       const response = await axios.post("/api/ekgandpereptapadanasadakpehagtafirega", {
