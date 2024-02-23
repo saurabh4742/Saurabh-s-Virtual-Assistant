@@ -14,7 +14,7 @@ const TitleAndCopyright = () => {
         "/api/ekgandpereptapadanasadakpehagtafirega/key"
       );
       if(response.data.ok){
-        if (SocketId && isBetaTester?.startsWith('p')) {
+        if (SocketId) {
           localStorage.removeItem('socketId');
         }
         toast.success(`sayonara 👋`,Primarystyle );
