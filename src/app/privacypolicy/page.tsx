@@ -7,18 +7,18 @@ const Page = () => {
         <div className='flex p-5 justify-center w-full bg-[#0F172A] text-[#F8FAFC]'>
       <div className="max-w-3xl">
         <h1 className="text-3xl font-bold mb-4">Privacy Policy</h1>
-        <p>Welcome to Saurabh&apos;s Virtual Assistant! We are committed to protecting your privacy and ensuring that your personal information is handled responsibly and securely. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our virtual assistant services.</p>
+        <p>Welcome to Saurabh&apos;s Virtual Assistant! We are committed to protecting your privacy and ensuring that your personal information is handled responsibly and securely. This Privacy Policy outlines how we collect, use, and safeguard your data when you use our Virtual Assistant services.</p>
 
         <h2 className="text-xl font-bold mt-8 mb-4">Information We Collect</h2>
         <p>When you use Saurabh&apos;s Virtual Assistant, we may collect certain information from you, including:</p>
         <ul className="list-disc ml-8">
           <li>Personal information: such as your name, email address, and phone number, which you may provide when you sign up for our services or contact us for support.</li>
-          <li>Usage information: such as your interactions with our virtual assistant, including the commands you give and the responses you receive.</li>
+          <li>Usage information: such as your interactions with our Virtual Assistant, including the commands you give and the responses you receive.</li>
           <li>Device information: such as your device type, operating system, and browser type, which we may collect automatically when you use our services.</li>
         </ul>
 
         <h2 className="text-xl font-bold mt-8 mb-4">How We Use Your Information</h2>
-        <p>We use the information we collect to provide and improve our virtual assistant services, including:</p>
+        <p>We use the information we collect to provide and improve our Virtual Assistant services, including:</p>
         <ul className="list-disc ml-8">
           <li>Responding to your requests and inquiries.</li>
           <li>Customizing your experience and providing personalized recommendations.</li>
@@ -41,7 +41,7 @@ const Page = () => {
         </ul>
 
         <h2 className="text-xl font-bold mt-8 mb-4">Third-Party Services</h2>
-        <p>We may use third-party services to provide certain features of our virtual assistant, such as speech recognition and natural language processing. These third-party services may collect and use your data in accordance with their own privacy policies.</p>
+        <p>We may use third-party services to provide certain features of our Virtual Assistant, such as speech recognition and natural language processing. These third-party services may collect and use your data in accordance with their own privacy policies.</p>
 
         <h2 className="text-xl font-bold mt-8 mb-4">Changes to This Policy</h2>
         <p>We reserve the right to update or modify this Privacy Policy at any time. Any changes will be posted on our website, and your continued use of our services after such changes will constitute your acceptance of the updated policy.</p>
