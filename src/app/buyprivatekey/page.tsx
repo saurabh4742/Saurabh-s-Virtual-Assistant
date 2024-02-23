@@ -14,7 +14,7 @@ const Page = () => {
        Feature currently available for developers only.....
         </p>
         <div className='flex justify-center'>
-        <div className='sm:w-4/12 mb-6 sm:h-4/12'>
+        <div className='sm:w-4/12 mb-20  sm:h-4/12'>
         <Suspense fallback={<NewLoader/>}>
         <PrivateKey/>
         </Suspense>
