@@ -36,7 +36,7 @@ const SendPromptBar = () => {
     } catch (error) {
       setLoading(false);
       setPrompt("");
-      toast.error("Server issue");
+      toast.error("Server issue", Primarystyle);
     }
   };
   return (
