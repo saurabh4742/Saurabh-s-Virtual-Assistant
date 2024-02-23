@@ -12,9 +12,16 @@ const RealtimeView = () => {
   useEffect(() => {
     socket.connect()
     socket.on("connect", () => {
-      setSocketId(socket.id)
+      const storedSocketId = localStorage.getItem('socketId');
+      if (storedSocketId) {
+        setSocketId(storedSocketId);
+      }else{
+        if(socket.id){
+        setSocketId(socket.id);
+        localStorage.setItem('socketId', socket.id);
+        }
+      }
     });
-    
     socket.on("count", (count) => {
       setViews(count)
     })
@@ -39,10 +46,11 @@ const RealtimeView = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [SocketId])
   socket.on("connect", () => {
+    
     setSocketId(socket.id)
   });
   return (
-    <div className='flex justify-center'>
+    <div className='flex text-center justify-center'>
       {views} Instance{views > 1 && `${"s"}`} Of This AI Running Currently
     </div>
   )

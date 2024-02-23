@@ -8,7 +8,7 @@ const Notes = () => {
         className="bg-[#1E293B] border-l-4   rounded-3xl my-2 border-emerald-500 text-emerald-500 p-4"
         role="alert"
       >
-        <p className="font-bold"><DatabaseZap color="#10B981" />Database</p>
+        <p className="font-bold"><DatabaseZap color="#10B981" /></p>
         <p className="text-[#F8FAFC]">Support us-
           <strong className="text-md">Use Create New</strong> if using <span className="text-md font-bold underline">Private Key</span>, before leaving the app
         </p>

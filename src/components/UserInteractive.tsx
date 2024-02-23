@@ -13,7 +13,7 @@ const UserInteractive = () => {
         {isBetaTester? <><DIscussionPage />
       <PlusChatRoom />
       <SendPromptBar /></>:<BetaTesterVerify />}
-      </>:<p className="flex justify-center m-4  text-xl text-[#F8FAFC]">Please wait while server comes online...</p>}
+      </>:<p className="flex justify-center m-4 text-center  text-lg text-[#F8FAFC]">Please wait while server comes online...<br/>Expected waiting time 10-15 seconds</p>}
     </div>
   );
 };
