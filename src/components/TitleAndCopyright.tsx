@@ -7,13 +7,16 @@ import axios from 'axios'
 import toast from 'react-hot-toast'
 import { Primarystyle } from '@/toastTheme/Themedstyle'
 const TitleAndCopyright = () => {
-  const {isBetaTester,setisBetaTester} =useMyContext()
+  const {isBetaTester,setisBetaTester,SocketId} =useMyContext()
   const handleLogout=async()=>{
     try {
       const response = await axios.delete(
         "/api/ekgandpereptapadanasadakpehagtafirega/key"
       );
       if(response.data.ok){
+        if (SocketId && isBetaTester?.startsWith('p')) {
+          localStorage.removeItem('socketId');
+        }
         toast.success(`sayonara 👋`,Primarystyle );
         setisBetaTester(undefined);
         return;
