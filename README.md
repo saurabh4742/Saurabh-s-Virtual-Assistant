@@ -18,10 +18,15 @@ Saurabh Virtual Assistant is an AI-powered chatbot designed to assist users with
 - Next.js 14
 - TypeScript
 - Tailwind CSS
+- Socket.io
 
 ## User Experience
 
-Users can expect a great UI with smooth experiences and promise-based loadouts.
+Users can expect a great UI with smooth experiences and promise-based loadouts. The application is responsive and works seamlessly on both mobile and desktop devices.
+
+## Privacy and Security
+
+Saurabh Virtual Assistant maintains user sessions securely and ensures that sensitive data is protected. The app uses industry-standard encryption and security protocols to safeguard user information. Additionally, the assistant does not store or share personal data without user consent, and it adheres to strict privacy policies to protect user privacy.
 
 ## Live Demo
 
@@ -39,3 +44,9 @@ To run this project locally, follow these steps:
 6. Open your browser and go to `http://localhost:3000` to view the project.
 
 Note: Don't forget to change the MongoDB URI in the project to your own URI.
+
+## Keys
+
+Public Key: "svibeta1st"
+
+Private Key: "psvi001"
