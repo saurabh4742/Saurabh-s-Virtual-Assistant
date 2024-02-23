@@ -6,10 +6,9 @@ const API_URL = 'https://svi-io.onrender.com'
 const socket = io(API_URL,{autoConnect:false})
 import { Primarystyle } from '@/toastTheme/Themedstyle'
 import { useMyContext } from '@/components/Provider'
-import axios from 'axios'
 const RealtimeView = () => {
   const [views, setViews] = useState(0)
-  const {setSocketId,isBetaTester,SocketId} =useMyContext()
+  const {setSocketId,SocketId} =useMyContext()
   useEffect(() => {
     socket.connect()
     socket.on("connect", () => {

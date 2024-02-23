@@ -40,8 +40,8 @@ const SendPromptBar = () => {
     }
   };
   return (
-    <div className="fixed w-full sm:w-8/12 bottom-6 px-2 ">
-      <div className="h-[40px] rounded-full  flex sm:w-full justify-start items-center bg-[#F8FAFC] w-10/12  p-1">
+    <div className="sticky mt-4 bottom-6 px-2 ">
+      <div className="h-[40px] rounded-full  flex sm:w-full justify-start items-center bg-[#F8FAFC] p-1">
         <textarea
           className="text-center scrollbar-none overflow-hidden scroll-smooth bg-[#0F172A] text-lg text-wrap  px-2 rounded-full  w-full h-[34px] "
           placeholder="Ask anything!"

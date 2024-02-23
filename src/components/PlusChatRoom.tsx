@@ -30,7 +30,7 @@ const PlusChatRoom = () => {
     }
   };
   return (
-    <div className="fixed sm:w-8/12  w-full bottom-20 mb-0 px-2">
+    <div className="sticky flex justify-center w-full bottom-20 my-2 px-2">
       <div className=" h-[40px] rounded-full  flex text-sm  sm:w-full justify-center items-center  w-10/12">
         <div className="text-[Roboto] bg-[#F8FAFC] h-fit w-fit rounded-full hover:opacity-50 px-3 text-[#0F172A] shadow-lg py-2 border-2 border-[#0F172A]">
           {loading ? (
