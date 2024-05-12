@@ -9,17 +9,13 @@ import { useMyContext } from "./Provider";
 const SendPromptBar = () => {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
-  const {SocketId,isBetaTester} =useMyContext()
   const handleInputChange = (event: {
     target: { value: React.SetStateAction<string> };
   }) => {
     setPrompt(event.target.value);
   };
   const handlePrompt = async () => {
-    let scid=isBetaTester
-    if(isBetaTester?.startsWith('p')){
-      scid=SocketId
-    }
+    let scid="svibeta1st"
    try {
       setLoading(true);
       const response = await axios.post("/api/ekgandpereptapadanasadakpehagtafirega", {

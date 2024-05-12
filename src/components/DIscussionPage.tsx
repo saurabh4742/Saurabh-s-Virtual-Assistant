@@ -18,10 +18,7 @@ const DIscussionPage = () => {
   const {isBetaTester,SocketId} =useMyContext()
   useEffect(() => {
     const fetchChats = async () => {
-      let scid=isBetaTester
-      if(isBetaTester?.startsWith('p')){
-        scid=SocketId
-      }
+      let scid="svibeta1st"
       try {
         const response = await axios.get(`/api/ekgandpereptapadanasadakpehagtafirega?scid=${scid}`);
         const { conversationContext } = response.data;
