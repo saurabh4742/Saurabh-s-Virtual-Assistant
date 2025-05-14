@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { model } from "../../../gemini-secure/gemini";
+// import { ai } from "../../../gemini-secure/gemini";
 import { CurrentMessage, ConversationContext } from "@/models/chat";
+//Gemini New Version
+import { GoogleGenAI} from "@google/genai";
+
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY })
+
+
+
 import "@/gemini-secure/db";
 export async function POST(req: NextRequest,context:any) {
   try {
@@ -24,17 +31,21 @@ export async function POST(req: NextRequest,context:any) {
       currentMessages.push({ role: "user", parts: prompt });
       currentMessages.push({ role: "model", parts: responseText });
     }
-    const chat = model.startChat({
-      history: currentMessages,
-      generationConfig: {
-        maxOutputTokens:1000,
-      },
-    });
+    // const chat = model.startChat({
+    //   history: currentMessages,
+    //   generationConfig: {
+    //     maxOutputTokens:1000,
+    //   },
+    // });
 
-    const result = await chat.sendMessage(prompt);
-    const response = result.response;
-    const responseText = response.text();
-
+    // const result = await chat.sendMessage(prompt);
+    // const response = result.response;
+    // const responseText = response.text();
+    const response = await ai.models.generateContent({
+    model: "gemini-2.0-flash",
+    contents: prompt,
+  });
+  const responseText=response.text || "Server Issue In Communication... Try Again";
     conversationContext.push({ prompt, responseText });
 
     await ConversationContext.findOneAndUpdate(
